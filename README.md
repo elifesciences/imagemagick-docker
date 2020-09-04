@@ -7,6 +7,8 @@ The original purpose of this image was to use ImageMagick's `convert` executable
 
 If you want to read a file from the host system, you can use the `-v` flag of the Docker CLI to bind a volume for input and output. An example usage is below.
 
+## Get or build the image
+
 ### Use pre-built image
 Download the image from docker hub:
 
@@ -17,8 +19,7 @@ Use local `Dockerfile` to build the image on your machine:
 
     $ docker build -t your_image_name .
 
-### eLife update the image at Docker hub
-The `Jenkinsfile` is linked to a build pipeline, and when that pipeline is run, it will push an updated image to Docker hub with the tag `latest`, will be listed at (https://hub.docker.com/r/elifesciences/imagemagick).
+## Use the image
 
 ### Run the image using the Docker CLI
 First, build or download the docker image.
@@ -33,3 +34,8 @@ If completed successfully, you should have a JPG file at `/tmp/cover.jpg` on the
 
 ### Other potential use cases
 This is only one example of running `convert`. You may be able to convert from any input file to any output file format (although this was not tested yet). If you specify a different `--entrypoint` value to the docker CLI you can probably invoke other ImageMagick programs, which was also not tested.
+
+## Notes for eLife
+
+### eLife update the image at Docker hub
+The `Jenkinsfile` is linked to a build pipeline, and when that pipeline is run, it will push an updated image to Docker hub with the tag `latest`, will be listed at (https://hub.docker.com/r/elifesciences/imagemagick).
